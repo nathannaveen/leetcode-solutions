@@ -22,10 +22,3 @@ func findTheDistanceValue(arr1 []int, arr2 []int, d int) int {
 	}
 	return res
 }
-
-func abs(n int) int {
-	if n < 0 {
-		return -n
-	}
-	return n
-}

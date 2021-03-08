@@ -5,7 +5,7 @@ func main() {
 }
 
 func merge(intervals [][]int) [][]int {
-	intervals = sort(intervals)
+	intervals = sortNotBuiltIn(intervals)
 	h := [][]int{intervals[0]}
 	for i := 1; i < len(intervals); i++ {
 		for true {
@@ -43,7 +43,7 @@ func merge(intervals [][]int) [][]int {
 	return h
 }
 
-func sort(h [][]int) [][]int {
+func sortNotBuiltIn(h [][]int) [][]int {
 	for i := 1; i < len(h); i++ {
 		if i >= 1 && (h[i-1][0] > h[i][0]) || (h[i-1][1] > h[i][1] && h[i-1][0] == h[i][0]) {
 			h[i-1], h[i] = h[i], h[i-1]
