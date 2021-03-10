@@ -17,17 +17,3 @@ func computeArea(A int, B int, C int, D int, E int, F int, G int, H int) int {
 	}
 	return sum
 }
-
-func max(a, b int) int {
-	if a < b {
-		return b
-	}
-	return a
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
