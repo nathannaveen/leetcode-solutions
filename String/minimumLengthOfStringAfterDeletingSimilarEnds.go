@@ -1,37 +1,25 @@
 package main
 
-import (
-	"strings"
-)
-
-func main() {
-}
-
 func minimumLength(s string) int {
-	chars := strings.Split(s, "")
-	del := true
 
-	for del {
-		del = false
-		left := 0
-		right := len(chars) - 1
+	for len(s) > 1 && s[0] == s[len(s)-1] {
+		end := s[len(s)-1]
+		lenS := len(s)
 
-		for chars[left] == chars[right] && left < right {
-			del = true
-			left++
+		for i := 0; i < lenS; i++ {
+			if s[len(s)-1] != s[0] {
+				s = s[:len(s)-i-1]
+				break
+			}
 		}
-		for chars[left] == chars[right] && left < right {
-			del = true
-			right++
-		}
-		chars = chars[left:right]
-		if len(chars) == 0 {
-			return 0
-		}
-		if left+1 == right {
-			return 2
+		lenS = len(s)
+		for i := 0; i < lenS; i++ {
+			if s[0] != end {
+				s = s[0+i+1:]
+				break
+			}
 		}
 	}
 
-	return len(chars)
+	return len(s)
 }

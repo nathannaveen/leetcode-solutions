@@ -5,20 +5,20 @@ func maxSubArray(nums []int) int {
 	for i := 1; i < len(nums); i++ {
 		for j := 0; j <= len(nums)-i; j++ {
 			// nums[j : j + i]
-			s := sum(nums[j : j+i])
+			s := theSum(nums[j : j+i])
 			if s > max {
 				max = s
 			}
 		}
 	}
-	s := sum(nums)
+	s := theSum(nums)
 	if s > max {
 		max = s
 	}
 	return max
 }
 
-func sum(nums []int) int {
+func theSum(nums []int) int {
 	sumOfInts := 0
 
 	for _, num := range nums {

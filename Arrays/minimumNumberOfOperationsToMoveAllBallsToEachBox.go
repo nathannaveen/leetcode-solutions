@@ -1,6 +1,6 @@
 package main
 
-func minOperations(boxes string) []int {
+func minOperationsBalls(boxes string) []int {
 	res := make([]int, len(boxes))
 
 	for i := 0; i < len(boxes); i++ {
@@ -11,11 +11,4 @@ func minOperations(boxes string) []int {
 		}
 	}
 	return res
-}
-
-func abs(n int) int {
-	if n < 0 {
-		return -n
-	}
-	return n
 }
