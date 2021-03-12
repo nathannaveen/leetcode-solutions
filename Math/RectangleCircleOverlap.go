@@ -7,13 +7,6 @@ func checkOverlap(radius int, x_center int, y_center int, x1 int, y1 int, x2 int
 		return true
 	}
 
-	if ((abs(x_center-x1)*abs(x_center-x1))+(abs(y_center-y1)*abs(y_center-y1)) <= radius*radius) ||
-		((abs(x_center-x2)*abs(x_center-x2))+(abs(y_center-y2)*abs(y_center-y2)) <= radius*radius) ||
-		((abs(x_center-x1)*abs(x_center-x1))+(abs(y_center-y2)*abs(y_center-y2)) <= radius*radius) ||
-		((abs(x_center-x2)*abs(x_center-x2))+(abs(y_center-y1)*abs(y_center-y1)) <= radius*radius) {
-		return true
-	}
-
 	if ((y1 <= y_center+radius && y1 >= y_center) || (y2 >= y_center-radius && y2 <= y_center)) &&
 		x_center >= x1 && x_center <= x2 {
 		return true
@@ -24,13 +17,16 @@ func checkOverlap(radius int, x_center int, y_center int, x1 int, y1 int, x2 int
 		return true
 	}
 
+	if powerOfTwo(x_center-x1)+powerOfTwo(y_center-y1) <= powerOfTwo(radius) ||
+		powerOfTwo(x_center-x1)+powerOfTwo(y_center-y2) <= powerOfTwo(radius) ||
+		powerOfTwo(x_center-x2)+powerOfTwo(y_center-y1) <= powerOfTwo(radius) ||
+		powerOfTwo(x_center-x2)+powerOfTwo(y_center-y2) <= powerOfTwo(radius) {
+		return true
+	}
+
 	return false
 }
 
-func abs(a int) int {
-	if a > 0 {
-		return a
-
-	}
-	return -a
+func powerOfTwo(n int) int {
+	return n * n
 }
