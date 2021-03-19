@@ -24,10 +24,3 @@ func closestValue(root *TreeNode, target float64) int {
 	}
 	return number
 }
-
-func abs(a float64) float64 {
-	if a > 0 {
-		return a
-	}
-	return -a
-}
