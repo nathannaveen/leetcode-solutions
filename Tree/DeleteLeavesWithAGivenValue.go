@@ -1,11 +1,5 @@
 package main
 
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
 func removeLeafNodes(root *TreeNode, target int) *TreeNode {
 	if root == nil {
 		return root
