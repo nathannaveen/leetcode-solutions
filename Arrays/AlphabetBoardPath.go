@@ -64,10 +64,3 @@ func containsPosition(theRow string, letter int32) int {
 	}
 	return -1
 }
-
-func abs(a int) int {
-	if a > 0 {
-		return a
-	}
-	return -a
-}

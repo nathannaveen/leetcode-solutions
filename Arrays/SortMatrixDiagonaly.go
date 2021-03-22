@@ -14,10 +14,3 @@ func diagonalSort(mat [][]int) [][]int {
 	}
 	return mat
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
