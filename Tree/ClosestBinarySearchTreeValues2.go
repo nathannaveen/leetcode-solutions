@@ -13,7 +13,7 @@ func closestKValues(root *TreeNode, target float64, k int) []int {
 		pop := stack[len(stack)-1]
 		stack = stack[:len(stack)-1]
 		if pop != nil {
-			differences = append(differences, abs(float64(pop.Val)-target))
+			differences = append(differences, absFloat(float64(pop.Val)-target))
 			eachNumber = append(eachNumber, pop.Val)
 			stack = append(stack, pop.Left, pop.Right)
 		}
@@ -30,7 +30,7 @@ func closestKValues(root *TreeNode, target float64, k int) []int {
 	return eachNumber[:k]
 }
 
-func abs(a float64) float64 {
+func absFloat(a float64) float64 {
 	if a > 0 {
 		return a
 	}
