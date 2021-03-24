@@ -16,10 +16,3 @@ func canDivideIntoSubsequences(nums []int, K int) bool {
 	}
 	return len(nums) >= K*maximum
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
