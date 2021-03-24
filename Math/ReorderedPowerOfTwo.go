@@ -5,9 +5,6 @@ import (
 	"strings"
 )
 
-func main() {
-}
-
 func reorderedPowerOf2(N int) bool {
 	h := strings.Split(strconv.Itoa(N), "")
 	product := 1
