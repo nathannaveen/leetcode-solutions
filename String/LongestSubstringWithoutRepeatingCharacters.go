@@ -4,29 +4,34 @@ func main() {
 }
 
 func lengthOfLongestSubstring(s string) int {
-	max := 0
+	maximum := 0
+	start := 0
+	m := make(map[byte]int)
+	counter := 0
 	for i := 0; i < len(s); i++ {
-		for j := 0; j <= len(s)-i; j++ {
-			// [s[j:j+i]]++
-			if notContainsCharacter(s[j : j+i]) {
-				max = len(s[j : j+i])
-				break
+		m[s[i]]++
+		counter++
+
+		if m[s[i]] == 2 {
+			maximum = max(maximum, counter-1)
+			for j := start; j < i; j++ {
+				m[s[j]]--
+				start++
+				counter--
+				if s[j] == s[i] {
+					break
+				}
 			}
 		}
 	}
-	if notContainsCharacter(s) {
-		max = len(s)
-	}
-	return max
+	maximum = max(maximum, counter)
+
+	return maximum
 }
 
-func notContainsCharacter(s string) bool {
-	m := make(map[string]int)
-	for _, i2 := range s {
-		m[string(i2)]++
-		if m[string(i2)] != 1 {
-			return false
-		}
+func max(a, b int) int {
+	if a > b {
+		return a
 	}
-	return true
+	return b
 }

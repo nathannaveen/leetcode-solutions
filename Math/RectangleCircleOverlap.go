@@ -26,7 +26,3 @@ func checkOverlap(radius int, x_center int, y_center int, x1 int, y1 int, x2 int
 
 	return false
 }
-
-func powerOfTwo(n int) int {
-	return n * n
-}

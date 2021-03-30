@@ -5,16 +5,22 @@ func main() {
 }
 
 func longestDupSubstring(s string) string {
-	max := ""
-	for i := 0; i < len(s); i++ {
+	res := ""
+	maximum := 0
+	m := make(map[string]int)
+
+	for i := 1; i < len(s); i++ {
 		for j := 0; j <= len(s)-i; j++ {
-			// [s[j:j+i]]++
-			for k := j + 1; k < len(s)-i; k++ {
-				if s[k:k+i] == s[j:j+i] && len(max) < len(s[k:k+i]) {
-					max = s[k : k+i]
-				}
-			}
+			// s[j : j + i]
+			m[s[j:j+i]]++
 		}
 	}
-	return max
+
+	for s2, i := range m {
+		if i == 2 && len(s2) > maximum {
+			res = s2
+			maximum = len(s2)
+		}
+	}
+	return res
 }
