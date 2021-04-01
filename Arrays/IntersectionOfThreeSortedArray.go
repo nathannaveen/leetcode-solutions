@@ -29,11 +29,4 @@ func arraysIntersection(arr1 []int, arr2 []int, arr3 []int) []int {
 	return res
 }
 
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
 // 96.61%, 98.31%
