@@ -47,10 +47,3 @@ func findMissingRanges(nums []int, lower int, upper int) []string {
 
 	return res
 }
-
-func abs(a int) int {
-	if a > 0 {
-		return a
-	}
-	return -a
-}
