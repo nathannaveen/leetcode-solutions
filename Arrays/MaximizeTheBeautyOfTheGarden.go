@@ -35,10 +35,3 @@ func maximumBeauty(flowers []int) int {
 
 	return beauty
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

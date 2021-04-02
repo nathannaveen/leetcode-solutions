@@ -32,10 +32,3 @@ func manhattanDistance(i, j int, ones []point) int {
 	}
 	return sum
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
