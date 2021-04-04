@@ -29,10 +29,3 @@ func minArea(image [][]byte, x int, y int) int {
 
 	return (maxX - minX) * (maxY - minY)
 }
-
-func abs(a int) int {
-	if a > 0 {
-		return a
-	}
-	return -a
-}
