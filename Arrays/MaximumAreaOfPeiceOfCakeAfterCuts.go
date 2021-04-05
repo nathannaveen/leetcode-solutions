@@ -23,3 +23,10 @@ func maxArea(h int, w int, horizontalCuts []int, verticalCuts []int) int {
 }
 
 // 92%, 90%
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
