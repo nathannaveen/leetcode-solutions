@@ -28,13 +28,6 @@ func numPoints(points [][]int, r int) int {
 	return maximum
 }
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
 func powerOfTwo(n int) int {
 	return n * n
 }
