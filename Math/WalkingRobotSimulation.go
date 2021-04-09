@@ -11,13 +11,6 @@ func abs(a int) int {
 	return -a
 }
 
-func max(a, b int) int {
-	if a < b {
-		return b
-	}
-	return a
-}
-
 func robotSim(commands []int, obstacles [][]int) int {
 	maximum := 0
 	direction := 0
