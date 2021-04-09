@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"math"
 )
 
 func main() {
@@ -15,7 +14,7 @@ func main() {
 func gcdOfStrings(str1 string, str2 string) string {
 	res := ""
 
-	for i := 1; i <= int(math.Min(float64(len(str1)), float64(len(str2)))); i++ {
+	for i := 1; i <= min(len(str1), len(str2)); i++ {
 		sub := str1[:i]
 		sub2 := str2[:i]
 
@@ -40,4 +39,11 @@ func gcdOfStrings(str1 string, str2 string) string {
 	}
 
 	return res
+}
+
+func min(a, b int) int {
+	if a > b {
+		return b
+	}
+	return a
 }
