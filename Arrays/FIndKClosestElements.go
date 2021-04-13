@@ -22,10 +22,3 @@ func findClosestElements(arr []int, k int, x int) []int {
 
 	return arr
 }
-
-func abs(a int) int {
-	if a > 0 {
-		return a
-	}
-	return -a
-}

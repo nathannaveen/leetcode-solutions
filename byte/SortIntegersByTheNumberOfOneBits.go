@@ -1,14 +1,12 @@
 package main
 
-import (
-	"sort"
-)
+import "sort"
 
 func main() {
 }
 
 func sortByBits(arr []int) []int {
-	h := [100][]int{}
+	h := [501][]int{}
 
 	for _, i := range arr {
 		n := i
