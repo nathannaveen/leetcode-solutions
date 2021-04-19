@@ -1,50 +1,22 @@
 package main
 
-import (
-	"math"
-)
-
-func main() {
-}
-
 func findShortestSubArray(nums []int) int {
-	h := make(map[int]int)
-	max := []int{}
-	n := []int{}
-	for _, num := range nums {
-		h[num]++
-		if len(max) > 0 && max[len(max)-1] < h[num] {
-			max = max[:]
-			max = append(max, h[num])
-			n = append(n, num)
-		} else if len(max) == 0 {
-			max = append(max, h[num])
-		} else if max[len(max)-1] == h[num] {
-			max = append(max, h[num])
-		}
-	}
+	res := 1
+	starts := make(map[int]int)
+	counters, maxCounter := make(map[int]int), 1
 
-	minCounter := 0
-	for i := range max {
-		counter := 0
-		numberOfNums := 0
-		start := false
-		for _, num := range nums {
-			if start == false && num == n[i] {
-				start = true
-				counter++
-				numberOfNums++
-			} else if start == true && num != n[i] {
-				counter++
-			} else if start == true && num == n[i] {
-				numberOfNums++
-				counter++
+	for i, num := range nums {
+		if _, ok := starts[num]; ok {
+			counters[num]++
+			if counters[num] > maxCounter {
+				maxCounter = counters[num]
+				res = i - starts[num] + 1
+			} else if counters[num] == maxCounter && i-starts[num] < res {
+				res = i - starts[num] + 1
 			}
-			if numberOfNums == max[i] {
-				break
-			}
+		} else {
+			starts[num], counters[num] = i, 1
 		}
-		minCounter = int(math.Min(float64(counter), float64(minCounter)))
 	}
-	return minCounter
+	return res
 }

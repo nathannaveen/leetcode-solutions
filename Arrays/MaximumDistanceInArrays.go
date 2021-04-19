@@ -4,7 +4,7 @@ func main() {
 
 }
 
-func maxDistance(arrays [][]int) int {
+func maxDistance2(arrays [][]int) int {
 	maximum, minimum := -10001, 10001
 
 	for _, array := range arrays {

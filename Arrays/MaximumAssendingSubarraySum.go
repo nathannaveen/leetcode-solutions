@@ -18,10 +18,3 @@ func maxAscendingSum(nums []int) int {
 	maximum = max(maximum, sum)
 	return maximum
 }
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
