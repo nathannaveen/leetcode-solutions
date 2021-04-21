@@ -6,7 +6,7 @@ func main() {
 
 }
 
-func findMaxConsecutiveOnes(nums []int) int {
+func findMaxConsecutiveOnes1(nums []int) int {
 	max := 0
 	counter := 0
 	for _, num := range nums {
