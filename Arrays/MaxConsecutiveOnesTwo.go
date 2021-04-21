@@ -36,11 +36,4 @@ func findMaxConsecutiveOnes(nums []int) int {
 	return maximum
 }
 
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
 // 100%, 96.55%
