@@ -8,28 +8,28 @@ func main() {
 
 func tree2str(t *TreeNode) string {
 	stack := []*TreeNode{t}
+	m := make(map[*TreeNode]int)
 	res := ""
-	counter := 0
 
 	for len(stack) != 0 {
-		pop := stack[len(stack)-1]
-		stack = stack[:len(stack)-1]
+		popedVal := stack[len(stack)-1]
 
-		if pop != nil {
-			if counter != 0 && res[len(res)-1] == ')' {
-				res += "("
-			}
-			res += strconv.Itoa(pop.Val) + "("
-			stack = append(stack, pop.Right, pop.Left)
-		} else {
-			if res[len(res)-1] == '(' {
-				res = res[:len(res)-1]
-			} else {
+		if popedVal != nil {
+			if m[popedVal] == 1 {
+				stack = stack[:len(stack)-1]
 				res += ")"
+			} else {
+				m[popedVal] = 1
+				res += "(" + strconv.Itoa(popedVal.Val)
+				if popedVal.Left == nil && popedVal.Right != nil {
+					res += "()"
+				}
+				stack = append(stack, popedVal.Right, popedVal.Left)
 			}
+		} else {
+			stack = stack[:len(stack)-1]
 		}
-		counter++
 	}
 
-	return res
+	return res[1 : len(res)-1]
 }

@@ -4,7 +4,7 @@ func main() {
 
 }
 
-func minOperations(s string) int {
+func minOperations2(s string) int {
 
 	onesAndZeros := make([]int, 2)
 	for _, i := range s {
@@ -20,4 +20,11 @@ func minOperations(s string) int {
 	} else {
 		return len(s)/2 - min(onesAndZeros[0], onesAndZeros[1])
 	}
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
