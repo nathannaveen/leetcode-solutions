@@ -4,13 +4,6 @@ func main() {
 
 }
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
 func surfaceArea(grid [][]int) int {
 	// 2 + shape * 4 == area of each shape
 	res := 0
