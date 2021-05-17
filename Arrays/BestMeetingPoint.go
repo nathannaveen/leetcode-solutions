@@ -1,10 +1,5 @@
 package main
 
-type point struct {
-	x int
-	y int
-}
-
 func minTotalDistance(grid [][]int) int {
 	ones := []point{}
 
@@ -31,4 +26,11 @@ func manhattanDistance(i, j int, ones []point) int {
 		sum += abs(j-thePoint.x) + abs(i-thePoint.y)
 	}
 	return sum
+}
+
+func abs(a int) int {
+	if a > 0 {
+		return a
+	}
+	return -a
 }

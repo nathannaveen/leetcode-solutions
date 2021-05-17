@@ -21,10 +21,3 @@ func minOperations2(s string) int {
 		return len(s)/2 - min(onesAndZeros[0], onesAndZeros[1])
 	}
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
