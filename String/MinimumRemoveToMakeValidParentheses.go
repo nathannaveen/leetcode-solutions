@@ -1,35 +1,32 @@
 package main
 
-func main() {
+import (
+	"fmt"
+)
 
+func main() {
+	fmt.Println(minRemoveToMakeValid("(a(b(c)d)"))
 }
 
 func minRemoveToMakeValid(s string) string {
-	g := 0
-	res := ""
-
-	for _, i := range s {
-		if i == '(' {
-			g++
-		} else if i == ')' {
-			g--
-		}
-		if g >= 0 {
-			res += string(i)
-		}
-	}
-	if g > 0 {
-		newRes := ""
-
-		for _, i := range s {
-			if i == '(' && g > 0 {
-				g--
+	stack := []int{}
+	for i := 0; i < len(s); i++ {
+		if s[i] == '(' {
+			stack = append(stack, i)
+		} else if s[i] == ')' {
+			if len(stack) != 0 {
+				stack = stack[:len(stack)-1]
 			} else {
-				newRes += string(i)
+				s = s[:i] + s[i+1:]
+				i--
 			}
 		}
-
-		return newRes
 	}
-	return res
+
+	for len(stack) != 0 {
+		pop := stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+		s = s[:pop] + s[pop+1:]
+	}
+	return s
 }

@@ -1,6 +1,6 @@
 package main
 
-func rotate(nums []int, k int) {
+func rotate2(nums []int, k int) {
 	h := make([]int, len(nums))
 
 	for i, num := range nums {
