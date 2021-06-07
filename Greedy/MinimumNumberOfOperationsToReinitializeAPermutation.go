@@ -8,27 +8,25 @@ func main() {
 
 func reinitializePermutation(n int) int {
 	perm := make([]int, n)
-	arr := make([]int, n)
 	res := 0
 
 	for i := 0; i < n; i++ {
 		perm[i] = i
-		arr[i] = i
 	}
 
-	for true {
+	arr := perm
+
+	for res == 0 || !reflect.DeepEqual(arr, perm) {
+		temp := make([]int, n)
 		for i := 0; i < len(arr); i++ {
 			if i%2 == 1 {
-				arr[i] = perm[n/2+(i-1)/2]
+				temp[i] = arr[n/2+(i-1)/2]
 			} else {
-				arr[i] = perm[i/2]
+				temp[i] = arr[i/2]
 			}
 		}
-		if reflect.DeepEqual(perm, arr) {
-			break
-		}
-		perm = arr
+		arr = temp
 		res++
 	}
-	return res + 1
+	return res
 }
