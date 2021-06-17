@@ -8,7 +8,7 @@ type ParkingSystem struct {
 	cars []int
 }
 
-func Constructor(big int, medium int, small int) ParkingSystem {
+func Constructor1(big int, medium int, small int) ParkingSystem {
 	c := ParkingSystem{
 		[]int{big, medium, small},
 	}
