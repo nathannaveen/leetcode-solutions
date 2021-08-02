@@ -1,6 +1,6 @@
 package main
 
-func minArea(image [][]byte, x int, y int) int {
+func minArea2(image [][]byte, x int, y int) int {
 	maxX, minX := 0, 0
 	maxY, minY := 0, 0
 
